@@ -31,6 +31,8 @@
 }
 
 body {
+  width: 100%;
+  height: 100vh;
   background-image: linear-gradient(to top, #209cff 100%, #68e0cf 200%);
   display: flex;
   justify-content: center;
@@ -44,9 +46,8 @@ button {
 
 .container {
   margin: 40px 0;
-  width: 90%;
-  max-width: 450px;
-  height: 90%;
+  width: 400px;
+  height: 600px;
   padding: 10px 25px;
   background: #0a0e31;
   border-radius: 10px;
@@ -290,6 +291,14 @@ button {
   box-shadow: 0 4px 8px rgba(255, 255, 255, 0.08);
 }
 
+.support {
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+  padding: 10px;
+  display: flex;
+}
+
 a {
   margin: 0 20px;
   color: #fff;
@@ -299,6 +308,20 @@ a {
 
 a:hover {
   color: #222;
+}
+
+.github-corner svg {
+  position: absolute;
+  right: 0;
+  top: 0;
+  mix-blend-mode: darken;
+  color: #eeeeee;
+  fill: #353535;
+  clip-path: polygon(0 0, 100% 0, 100% 100%);
+}
+
+.github-corner:hover .octo-arm {
+  animation: octocat-wave 0.56s;
 }
 
 @keyframes octocat-wave {
