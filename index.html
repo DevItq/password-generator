@@ -5,8 +5,6 @@
   <link rel="shortcut icon" type="image/x-icon" href="/password.png" />
   <title>Генератор паролей</title>  
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css'>
-  <script scr="https://devitq.github.io/password-generator/addition.js"></script>
-  <script scr="https://devitq.github.io/password-generator/script.js"></script>
   <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Montserrat&amp;display=swap'>
 <style>
 /* Mobile Styling */
@@ -156,7 +154,270 @@ button {border: 0;outline: 0;}
 			<label for="symbol">Символы</label>
 		</div>
 	</div>
+	<script>window.HUB_EVENTS={ASSET_ADDED:"ASSET_ADDED",ASSET_DELETED:"ASSET_DELETED",ASSET_DESELECTED:"ASSET_DESELECTED",ASSET_SELECTED:"ASSET_SELECTED",ASSET_UPDATED:"ASSET_UPDATED",CONSOLE_CHANGE:"CONSOLE_CHANGE",CONSOLE_CLOSED:"CONSOLE_CLOSED",CONSOLE_EVENT:"CONSOLE_EVENT",CONSOLE_OPENED:"CONSOLE_OPENED",CONSOLE_RUN_COMMAND:"CONSOLE_RUN_COMMAND",CONSOLE_SERVER_CHANGE:"CONSOLE_SERVER_CHANGE",EMBED_ACTIVE_PEN_CHANGE:"EMBED_ACTIVE_PEN_CHANGE",EMBED_ACTIVE_THEME_CHANGE:"EMBED_ACTIVE_THEME_CHANGE",EMBED_ATTRIBUTE_CHANGE:"EMBED_ATTRIBUTE_CHANGE",EMBED_RESHOWN:"EMBED_RESHOWN",FORMAT_FINISH:"FORMAT_FINISH",FORMAT_ERROR:"FORMAT_ERROR",FORMAT_START:"FORMAT_START",IFRAME_PREVIEW_RELOAD_CSS:"IFRAME_PREVIEW_RELOAD_CSS",IFRAME_PREVIEW_URL_CHANGE:"IFRAME_PREVIEW_URL_CHANGE",KEY_PRESS:"KEY_PRESS",LINTER_FINISH:"LINTER_FINISH",LINTER_START:"LINTER_START",PEN_CHANGE_SERVER:"PEN_CHANGE_SERVER",PEN_CHANGE:"PEN_CHANGE",PEN_EDITOR_CLOSE:"PEN_EDITOR_CLOSE",PEN_EDITOR_CODE_FOLD:"PEN_EDITOR_CODE_FOLD",PEN_EDITOR_ERRORS:"PEN_EDITOR_ERRORS",PEN_EDITOR_EXPAND:"PEN_EDITOR_EXPAND",PEN_EDITOR_FOLD_ALL:"PEN_EDITOR_FOLD_ALL",PEN_EDITOR_LOADED:"PEN_EDITOR_LOADED",PEN_EDITOR_REFRESH_REQUEST:"PEN_EDITOR_REFRESH_REQUEST",PEN_EDITOR_RESET_SIZES:"PEN_EDITOR_RESET_SIZES",PEN_EDITOR_SIZES_CHANGE:"PEN_EDITOR_SIZES_CHANGE",PEN_EDITOR_UI_CHANGE_SERVER:"PEN_EDITOR_UI_CHANGE_SERVER",PEN_EDITOR_UI_CHANGE:"PEN_EDITOR_UI_CHANGE",PEN_EDITOR_UI_DISABLE:"PEN_EDITOR_UI_DISABLE",PEN_EDITOR_UI_ENABLE:"PEN_EDITOR_UI_ENABLE",PEN_EDITOR_UNFOLD_ALL:"PEN_EDITOR_UNFOLD_ALL",PEN_ERROR_INFINITE_LOOP:"PEN_ERROR_INFINITE_LOOP",PEN_ERROR_RUNTIME:"PEN_ERROR_RUNTIME",PEN_ERRORS:"PEN_ERRORS",PEN_LIVE_CHANGE:"PEN_LIVE_CHANGE",PEN_LOGS:"PEN_LOGS",PEN_MANIFEST_CHANGE:"PEN_MANIFEST_CHANGE",PEN_MANIFEST_FULL:"PEN_MANIFEST_FULL",PEN_PREVIEW_FINISH:"PEN_PREVIEW_FINISH",PEN_PREVIEW_START:"PEN_PREVIEW_START",PEN_SAVED:"PEN_SAVED",POPUP_CLOSE:"POPUP_CLOSE",POPUP_OPEN:"POPUP_OPEN",POST_CHANGE:"POST_CHANGE",POST_SAVED:"POST_SAVED",PROCESSING_FINISH:"PROCESSING_FINISH",PROCESSING_START:"PROCESSED_STARTED"},"object"!=typeof window.CP&&(window.CP={}),window.CP.PenTimer={programNoLongerBeingMonitored:!1,timeOfFirstCallToShouldStopLoop:0,_loopExits:{},_loopTimers:{},START_MONITORING_AFTER:2e3,STOP_ALL_MONITORING_TIMEOUT:5e3,MAX_TIME_IN_LOOP_WO_EXIT:2200,exitedLoop:function(E){this._loopExits[E]=!0},shouldStopLoop:function(E){if(this.programKilledSoStopMonitoring)return!0;if(this.programNoLongerBeingMonitored)return!1;if(this._loopExits[E])return!1;var _=this._getTime();if(0===this.timeOfFirstCallToShouldStopLoop)return this.timeOfFirstCallToShouldStopLoop=_,!1;var o=_-this.timeOfFirstCallToShouldStopLoop;if(o<this.START_MONITORING_AFTER)return!1;if(o>this.STOP_ALL_MONITORING_TIMEOUT)return this.programNoLongerBeingMonitored=!0,!1;try{this._checkOnInfiniteLoop(E,_)}catch{return this._sendErrorMessageToEditor(),this.programKilledSoStopMonitoring=!0,!0}return!1},_sendErrorMessageToEditor:function(){try{if(this._shouldPostMessage()){var E={topic:HUB_EVENTS.PEN_ERROR_INFINITE_LOOP,data:{line:this._findAroundLineNumber()}};parent.postMessage(E,"*")}else this._throwAnErrorToStopPen()}catch{this._throwAnErrorToStopPen()}},_shouldPostMessage:function(){return document.location.href.match(/boomboom/)},_throwAnErrorToStopPen:function(){throw"We found an infinite loop in your Pen. We've stopped the Pen from running. More details and workarounds at https://blog.codepen.io/2016/06/08/can-adjust-infinite-loop-protection-timing/"},_findAroundLineNumber:function(){var E=new Error("ignored"),_=0;if(E.stack){var o=E.stack.match(/boomboom\S+:(\d+):\d+/);o&&(_=o[1])}return _},_checkOnInfiniteLoop:function(E,_){if(!this._loopTimers[E])return this._loopTimers[E]=_,!1;if(_-this._loopTimers[E]>this.MAX_TIME_IN_LOOP_WO_EXIT)throw"Infinite Loop found on loop: "+E},_getTime:function(){return Date.now()}},window.CP.shouldStopExecution=function(E){var _=window.CP.PenTimer.shouldStopLoop(E);return!0===_&&console.warn("[CodePen]: An infinite loop (or a loop taking too long) was detected, so we stopped its execution. More details at https://blog.codepen.io/2016/06/08/can-adjust-infinite-loop-protection-timing/"),_},window.CP.exitedLoop=function(E){window.CP.PenTimer.exitedLoop(E)};</script>
 	<button class="btn generate" id="generate">Генерировать</button>
 </div>
+      <script id="rendered-js" >
+console.clear();
+const sliderProps = {
+  fill: "#0B1EDF",
+  background: "rgba(255, 255, 255, 0.214)" };
+
+const slider = document.querySelector(".range__slider");
+
+// Text which will show the value of the range slider.
+const sliderValue = document.querySelector(".length__title");
+
+slider.querySelector("input").addEventListener("input", event => {
+  sliderValue.setAttribute("data-length", event.target.value);
+  applyFill(event.target);
+});
+
+// Object of all the function names that we will use to create random letters of password
+const randomFunc = {
+  lower: getRandomLower,
+  upper: getRandomUpper,
+  number: getRandomNumber,
+  symbol: getRandomSymbol };
+
+
+// Random more secure value
+function secureMathRandom() {
+  return window.crypto.getRandomValues(new Uint32Array(1))[0] / (Math.pow(2, 32) - 1);
+}
+
+// Generator Functions
+// All the functions that are responsible to return a random value taht we will use to create password.
+function getRandomLower() {
+  return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
+}
+function getRandomUpper() {
+  return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
+}
+function getRandomNumber() {
+  return String.fromCharCode(Math.floor(secureMathRandom() * 10) + 48);
+}
+function getRandomSymbol() {
+  const symbols = '~!@#$%^&*()_+{}":?><;.,';
+  return symbols[Math.floor(Math.random() * symbols.length)];
+}
+
+// Selecting all the DOM Elements that are necessary -->
+
+// The Viewbox where the result will be shown
+const resultEl = document.getElementById("result");
+// The input slider, will use to change the length of the password
+const lengthEl = document.getElementById("slider");
+
+// Checkboxes representing the options that is responsible to create differnt type of password based on user
+const uppercaseEl = document.getElementById("uppercase");
+uppercaseEl.addEventListener('change', () => {
+  const length = +lengthEl.value;
+  const hasLower = lowercaseEl.checked;
+  const hasUpper = uppercaseEl.checked;
+  const hasNumber = numberEl.checked;
+  const hasSymbol = symbolEl.checked;
+  generatedPassword = true;
+  resultEl.innerText = generatePassword(length, hasLower, hasUpper, hasNumber, hasSymbol);
+  copyInfo.style.transform = "translateY(0%)";
+  copyInfo.style.opacity = "0.75";
+  copiedInfo.style.transform = "translateY(200%)";
+  copiedInfo.style.opacity = "0";
+})
+const lowercaseEl = document.getElementById("lowercase");
+lowercaseEl.addEventListener('change', () => {
+  const length = +lengthEl.value;
+  const hasLower = lowercaseEl.checked;
+  const hasUpper = uppercaseEl.checked;
+  const hasNumber = numberEl.checked;
+  const hasSymbol = symbolEl.checked;
+  generatedPassword = true;
+  resultEl.innerText = generatePassword(length, hasLower, hasUpper, hasNumber, hasSymbol);
+  copyInfo.style.transform = "translateY(0%)";
+  copyInfo.style.opacity = "0.75";
+  copiedInfo.style.transform = "translateY(200%)";
+  copiedInfo.style.opacity = "0";
+})
+const numberEl = document.getElementById("number");
+numberEl.addEventListener('change', () => {
+  const length = +lengthEl.value;
+  const hasLower = lowercaseEl.checked;
+  const hasUpper = uppercaseEl.checked;
+  const hasNumber = numberEl.checked;
+  const hasSymbol = symbolEl.checked;
+  generatedPassword = true;
+  resultEl.innerText = generatePassword(length, hasLower, hasUpper, hasNumber, hasSymbol);
+  copyInfo.style.transform = "translateY(0%)";
+  copyInfo.style.opacity = "0.75";
+  copiedInfo.style.transform = "translateY(200%)";
+  copiedInfo.style.opacity = "0";
+})
+const symbolEl = document.getElementById("symbol");
+symbolEl.addEventListener('change', () => {
+  const length = +lengthEl.value;
+  const hasLower = lowercaseEl.checked;
+  const hasUpper = uppercaseEl.checked;
+  const hasNumber = numberEl.checked;
+  const hasSymbol = symbolEl.checked;
+  generatedPassword = true;
+  resultEl.innerText = generatePassword(length, hasLower, hasUpper, hasNumber, hasSymbol);
+  copyInfo.style.transform = "translateY(0%)";
+  copyInfo.style.opacity = "0.75";
+  copiedInfo.style.transform = "translateY(200%)";
+  copiedInfo.style.opacity = "0";
+})
+
+// Button to generate the password
+const generateBtn = document.getElementById("generate");
+// Button to copy the text
+const copyBtn = document.getElementById("copy-btn");
+// Result viewbox container
+const resultContainer = document.querySelector(".result");
+// Text info showed after generate button is clicked
+const copyInfo = document.querySelector(".result__info.right");
+// Text appear after copy button is clicked
+const copiedInfo = document.querySelector(".result__info.left");
+
+// if this variable is trye only then the copyBtn will appear, i.e. when the user first click generate the copyBth will interact.
+let generatedPassword = false;
+
+// Update Css Props of the COPY button
+// Getting the bounds of the result viewbox container
+let resultContainerBound = {
+  left: resultContainer.getBoundingClientRect().left,
+  top: resultContainer.getBoundingClientRect().top };
+
+// This will update the position of the copy button based on mouse Position
+resultContainer.addEventListener("mousemove", e => {
+  resultContainerBound = {
+    left: resultContainer.getBoundingClientRect().left,
+    top: resultContainer.getBoundingClientRect().top };
+
+  if (generatedPassword) {
+    copyBtn.style.opacity = '1';
+    copyBtn.style.pointerEvents = 'all';
+    copyBtn.style.setProperty("--x", `${e.x - resultContainerBound.left}px`);
+    copyBtn.style.setProperty("--y", `${e.y - resultContainerBound.top}px`);
+  } else {
+    copyBtn.style.opacity = '0';
+    copyBtn.style.pointerEvents = 'none';
+  }
+});
+window.addEventListener("resize", e => {
+  resultContainerBound = {
+    left: resultContainer.getBoundingClientRect().left,
+    top: resultContainer.getBoundingClientRect().top };
+
+});
+
+// Copy Password in clipboard
+copyBtn.addEventListener("click", () => {
+  const textarea = document.createElement("textarea");
+  const password = resultEl.innerText;
+  if (!password || password == "CLICK GENERATE") {
+    return;
+  }
+  textarea.value = password;
+  document.body.appendChild(textarea);
+  textarea.select();
+  document.execCommand("copy");
+  textarea.remove();
+
+  copyInfo.style.transform = "translateY(200%)";
+  copyInfo.style.opacity = "0";
+  copiedInfo.style.transform = "translateY(0%)";
+  copiedInfo.style.opacity = "0.75";
+});
+
+// When Generate is clicked Password id generated.
+generateBtn.addEventListener("click", () => {
+  const length = +lengthEl.value;
+  const hasLower = lowercaseEl.checked;
+  const hasUpper = uppercaseEl.checked;
+  const hasNumber = numberEl.checked;
+  const hasSymbol = symbolEl.checked;
+  generatedPassword = true;
+  resultEl.innerText = generatePassword(length, hasLower, hasUpper, hasNumber, hasSymbol);
+  copyInfo.style.transform = "translateY(0%)";
+  copyInfo.style.opacity = "0.75";
+  copiedInfo.style.transform = "translateY(200%)";
+  copiedInfo.style.opacity = "0";
+});
+
+// Function responsible to generate password and then returning it.
+function generatePassword(length, lower, upper, number, symbol) {
+  let generatedPassword = "";
+  const typesCount = lower + upper + number + symbol;
+  const typesArr = [{ lower }, { upper }, { number }, { symbol }].filter(item => Object.values(item)[0]);
+  if (typesCount === 0) {
+    return "";
+  }
+  for (let i = 0; i < length; i++) {if (window.CP.shouldStopExecution(0)) break;
+    typesArr.forEach(type => {
+      const funcName = Object.keys(type)[0];
+      generatedPassword += randomFunc[funcName]();
+    });
+  }window.CP.exitedLoop(0);
+  return generatedPassword.slice(0, length).
+  split('').sort(() => Math.random() - 0.5).
+  join('');
+}
+
+// function that handles the checkboxes state, so at least one needs to be selected. The last checkbox will be disabled.
+function disableOnlyCheckbox() {
+  let totalChecked = [uppercaseEl, lowercaseEl, numberEl, symbolEl].filter(el => el.checked);
+  totalChecked.forEach(el => {
+    if (totalChecked.length == 1) {
+      el.disabled = true;
+    } else {
+      el.disabled = false;
+    }
+  });
+}
+
+[uppercaseEl, lowercaseEl, numberEl, symbolEl].forEach(el => {
+  el.addEventListener('click', () => {
+    disableOnlyCheckbox();
+  });
+});
+// This function is responsible to create the trailing color and setting the fill.
+applyFill = function(slider) {
+  const percentage = 100 * (slider.value - slider.min) / (slider.max - slider.min);
+  const bg = `linear-gradient(90deg, ${sliderProps.fill} ${percentage}%, ${sliderProps.background} ${percentage +
+  0.1}%)`;
+  slider.style.background = bg;
+  sliderValue.setAttribute("data-length", slider.value);
+  const length = +lengthEl.value;
+  const hasLower = lowercaseEl.checked;
+  const hasUpper = uppercaseEl.checked;
+  const hasNumber = numberEl.checked;
+  const hasSymbol = symbolEl.checked;
+  generatedPassword = true;
+  resultEl.innerText = generatePassword(length, hasLower, hasUpper, hasNumber, hasSymbol);
+  copyInfo.style.transform = "translateY(0%)";
+  copyInfo.style.opacity = "0.75";
+  copiedInfo.style.transform = "translateY(200%)";
+  copiedInfo.style.opacity = "0";
+}
+// Selecting the range input and passing it in the applyFill func.
+applyFill(slider.querySelector("input"));
+window.onload = function() {
+  const length = +lengthEl.value;
+  const hasLower = lowercaseEl.checked;
+  const hasUpper = uppercaseEl.checked;
+  const hasNumber = numberEl.checked;
+  const hasSymbol = symbolEl.checked;
+  generatedPassword = true;
+  resultEl.innerText = generatePassword(length, hasLower, hasUpper, hasNumber, hasSymbol);
+  copyInfo.style.transform = "translateY(0%)";
+  copyInfo.style.opacity = "0.75";
+  copiedInfo.style.transform = "translateY(200%)";
+  copiedInfo.style.opacity = "0";
+};
+//# sourceURL=pen.js
+    </script>
+
+  
 </body>
+
 </html>
