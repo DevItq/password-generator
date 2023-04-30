@@ -7,62 +7,27 @@
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css'>
   <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Montserrat&amp;display=swap'>
 <style>
-/* Mobile Styling */
-@media (max-width: 768px) {
+@media (max-width: 480px) {
   body {
     flex-direction: column;
   }
   .container {
-    width: 90%;
-    height: auto;
-    padding: 10px 0;
-  }
-  .result {
-    height: auto;
-    padding-top: 10px;
+    width: 100%;
   }
   .result__info {
-    position: relative;
-    bottom: 0;
-    opacity: 1;
-    transform: translateY(0);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    margin-top: 10px;
+    font-size: 0.6rem;
   }
-  .result__info.right {
-    right: 0;
+  .field-title {
+    font-size: 0.5rem;
   }
-  .result__info.left {
-    left: 0;
-  }
-  .result__viewbox {
-    line-height: 2;
-  }
-  .range__slider {
-    flex-direction: column;
-    width: 100%;
-  }
-  .range__slider::before,
-  .range__slider::after {
-    top: -20px;
-    left: 0;
-    right: 0;
-    width: 100%;
-    text-align: center;
-  }
-  #slider {
-    width: 100%;
-  }
-  .settings {
-    flex-direction: row;
-    flex-wrap: wrap;
+  .range__slider::before, .range__slider::after {
+    font-size: 0.7rem;
   }
   .settings .setting {
-    width: 50%;
-    margin-bottom: 0;
+    font-size: 0.75rem;
+  }
+  .btn.generate {
+    font-size: 0.9rem;
   }
 }
 * {margin: 0;padding: 0;box-sizing: border-box;}
