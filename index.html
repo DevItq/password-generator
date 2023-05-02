@@ -367,6 +367,15 @@ a:hover {
 </div>
       <script id="rendered-js" >
 console.clear();
+
+const UPPERCASE_CODES = arrayFromLowToHigh(65, 90);
+const LOWERCASE_CODES = arrayFromLowToHigh(97, 122);
+const NUMBER_CODES = arrayFromLowToHigh(48, 57);
+const SYMBOL_CODES = arrayFromLowToHigh(33, 47)
+  .concat(arrayFromLowToHigh(58, 64))
+  .concat(arrayFromLowToHigh(91, 96))
+  .concat(arrayFromLowToHigh(123, 126)
+
 const sliderProps = {
   fill: "#0B1EDF",
   background: "rgba(255, 255, 255, 0.214)" };
@@ -622,10 +631,15 @@ window.onload = function() {
   copiedInfo.style.transform = "translateY(200%)";
   copiedInfo.style.opacity = "0";
 };
-//# sourceURL=pen.js
+
+// Character Code Generating Function
+function arrayFromLowToHigh(low, high) {
+  const array = [];
+  for (let i = low; i <= high; i++) {
+    array.push(i);
+  }
+  return array;
+}
     </script>
-
-  
 </body>
-
 </html>
