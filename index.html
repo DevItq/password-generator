@@ -563,6 +563,17 @@ generateBtn.addEventListener("click", () => {
 
 // Function responsible to generate password and then returning it.
 function generatePassword(length, lower, upper, number, symbol) {
+  if (lower) charCodes =  charCodes.concat(LOWERCASE_CODES);
+  if (upper) charCodes = charCodes.concat(UPPERCASE_CODES);
+  if (symbol) charCodes = charCodes.concat(SYMBOL_CODES);
+  if (number) charCodes = charCodes.concat(NUMBER_CODES);
+  const passwordCharacters = [];
+  for (let i = 0; i < characterAmount; i++) {
+    const characterCode =
+      charCodes[Math.floor(Math.random() * charCodes.length)];
+    passwordCharacters.push(String.fromCharCode(characterCode));
+  }
+  return passwordCharacters.join('');
   let generatedPassword = "";
   const typesCount = lower + upper + number + symbol;
   const typesArr = [{ lower }, { upper }, { number }, { symbol }].filter(item => Object.values(item)[0]);
