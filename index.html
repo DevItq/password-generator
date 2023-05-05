@@ -556,22 +556,21 @@ generateBtn.addEventListener("click", () => {
 // Function responsible to generate password and then returning it.
 function generatePassword(length, lower, upper, number, symbol) {
   let generatedPassword = "";
-  const typesCount = lower + upper + number + symbol;
-  const typesArr = [{ lower }, { upper }, { number }, { symbol }].filter(item => Object.values(item)[0]);
-  if (typesCount === 0) {
-    return "";
-  }
-  for (let i = 0; i < length; i++) {if (window.CP.shouldStopExecution(0)) break;
-    typesArr.forEach(type => {
-      const funcName = Object.keys(type)[0];
-      generatedPassword += randomFunc[funcName]();
-    });
-  }window.CP.exitedLoop(0);
-  return generatedPassword.slice(0, length).
-  split('').sort(() => Math.random() - 0.5).
-  join('');
+	const typesCount = lower + upper + number + symbol;
+	const typesArr = [{ lower }, { upper }, { number }, { symbol }].filter(item => Object.values(item)[0]);
+	if (typesCount === 0) {
+		return "";
+	}
+	for (let i = 0; i < length; i++) {
+		typesArr.forEach(type => {
+			const funcName = Object.keys(type)[0];
+			generatedPassword += randomFunc[funcName]();
+		});
+	}
+	return generatedPassword.slice(0, length)
+									.split('').sort(() => Math.random() - 0.5)
+									.join('');
 }
-
 // function that handles the checkboxes state, so at least one needs to be selected. The last checkbox will be disabled.
 function disableOnlyCheckbox() {
   let totalChecked = [uppercaseEl, lowercaseEl, numberEl, symbolEl].filter(el => el.checked);
