@@ -406,9 +406,7 @@ function getRandomNumber() {
 }
 function getRandomSymbol() {
   const symbols = '@#*:;!';
-  min = Math.ceil(0);
-  max = Math.floor(symbols.length);
-  return symbols[Math.floor(Math.random() * (max - min + 1)) + min];
+  return symbols[Math.floor(Math.random() * symbols.length)];
 }
 
 // Selecting all the DOM Elements that are necessary -->
