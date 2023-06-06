@@ -406,9 +406,9 @@ function getRandomNumber() {
   return String.fromCharCode(Math.floor(secureMathRandom() * 10) + 48);
 }
 function getRandomSymbol() {
-  // const symbols = '@#*:;!';
-  // return symbols[Math.floor(Math.random() * symbols.length)];
-     return String.fromCharCode(Math.floor(Math.random() * 26) + 33);}
+  const symbols = '@#*:;!';
+  return symbols[Math.floor(Math.random() * symbols.length)];
+}
 // Selecting all the DOM Elements that are necessary -->
 
 // The Viewbox where the result will be shown
